@@ -399,8 +399,8 @@ const resetTimer = () => {
 const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
 
-timeoutSound.src = "timeup.wav"
-gameSound.src = "timedcountdown.mp3"
+timeoutSound.src = "timeup.mp3"
+gameSound.src = "countdownLOUD.mp3"
 winSound.src = "win.mp3"
 timeoutSound.load()
 gameSound.load()
