@@ -429,25 +429,32 @@ li.category-selection {
 }
 
 #team1-button, #team2-button {
+    display:flex;
+    justify-content:center;
     font-family: team-button;
     margin-bottom: 300px;
-    border: none;
+   /*  border: none; */
     padding: 5px;
     border-radius: 50px;
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     color:white;
 }
 
 #team1-button {
+  
+    display:none;
     margin-right: 100px;
     font-size: 80px;
+    border: none;
     background-color: transparent;
     text-shadow: 0 -40px 110px, 0 0 2px, 0 0 1em #0008ff, 0 0 0.5em rgb(21, 0, 255), 0 0 0.1em #0000ff, 0 10px 3px #000;
 }
 
 #team2-button {
+    display: none;
     margin-left: 100px;
+    border: none;
     font-size: 80px;
     background-color: transparent;
     text-shadow: 0 -40px 110px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em rgb(255, 0, 0), 0 0 0.1em #ff0000, 0 10px 3px #000;
