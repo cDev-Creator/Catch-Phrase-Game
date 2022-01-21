@@ -11,51 +11,33 @@ const wordsContainer = document.querySelector('[data-words]')
 const newWordForm = document.querySelector('[data-new-word-form]')
 const newWordInput = document.querySelector('[data-new-word-input]')
 
-
 const randomWord = document.querySelector('[random-word]')
 const randomWordButton = document.querySelector('[random-word-button]')
 const team1Button = document.querySelector('[team-1-button]')
 const team2Button = document.querySelector('[team-2-button]')
 
-
-
 const categoryNames = document.querySelector('[category-names]')
-
 const team1Score = document.getElementById('team1-score')
 const team2Score = document.getElementById('team2-score')
-
-//const nextRound = document.getElementById('next-round-button')
-
-
-//const categoryChangeButton = document.getElementById('category-change-button')
-
 const activeCategorySelection = document.querySelector('.active-category-selection')
-
 
 const redWinner = document.getElementById('red-winner')
 const blueWinner = document.getElementById('blue-winner')
-
 const categorySelection = document.querySelector('.category-selection')
+
+const showButton = document.getElementById('show-button')
 const hiddenCategoryAdded = document.querySelector('.lists')
 const wordTemplate = document.getElementById('word-template')
-
-
 
 const countdown = document.getElementById('countdown')
 const timeoutSound = document.getElementById('timeout-sound')
 const scoreboard = document.querySelector('.scoreboard')
 
 const selectionButton = document.getElementById('selection-button')
-const showButton = document.getElementById('show-button')
-
-
-
-
 
 
 // the data attribute is used to store custom data private to a page
 // to make a data attribute it must start with 'data-'
-
 // need key-value pairs to store locally
 // need to make namespace when storing locally, hence 'word.' added bc
 // it prevents you from over-riding info already in local stroage or 
@@ -63,19 +45,10 @@ const showButton = document.getElementById('show-button')
 const local_storage_list_key = 'word.lists'
 const local_storage_list_id_key = 'word.selectedListId'
 
-
-
-
 // get information from local storage using this key and if it exists parse it into
 // an object or if it does not exist give an empty array of lists to start
 let lists = JSON.parse(localStorage.getItem(local_storage_list_key)) || []
-
 let selectedListId = localStorage.getItem(local_storage_list_id_key)
-
-
-
-
-
 
 hiddenCategoryAdded.style.display = 'none'
 function hideWordAdder(){
@@ -93,7 +66,6 @@ function hideWordAdder(){
     if(hiddenCategoryAdded.style.display === 'flex') {
         showButton.innerHTML = 'hide'
     }
-    
 }
 
 function renderLists() {
@@ -112,46 +84,28 @@ function renderLists() {
             listElement.classList.add("active-list")
         }
         listsContainer.appendChild(listElement)
-
     })
-
 }
 
-    function renderCategories() {
-        lists.forEach(list => {
-
-      
-            const listElement = document.createElement('li')
-            
-            listElement.dataset.listId = list.id
-            //listElement.classList.add("list-names")
-            
-            listElement.classList.add("category-selection")
-            listElement.classList.add("list-name")
-
-            listElement.innerText = list.name
+function renderCategories() {
+    lists.forEach(list => {
+        const listElement = document.createElement('li')
+        listElement.dataset.listId = list.id
+        //listElement.classList.add("list-names")
+        listElement.classList.add("category-selection")
+        listElement.classList.add("list-name")
+         listElement.innerText = list.name
        
+        // listElement.style.display = "none"
+        // if list is currently selected list set it to active list
+        if (list.id === selectedListId) {
+            listElement.classList.add("active-category-selection")
+            listElement.style.display = ""
+        }
 
-         
-
-           
-            
-
-          // listElement.style.display = "none"
-
-            // if list is currently selected list set it to active list
-            if (list.id === selectedListId) {
-                listElement.classList.add("active-category-selection")
-                listElement.style.display = ""
-            }
-
-            
-
-            categoryNames.appendChild(listElement)
-       
-        })
-        
-    }
+        categoryNames.appendChild(listElement)
+    })  
+}
    
 listsContainer.addEventListener('click', e => {
     if(e.target.tagName.toLowerCase() === 'li') {
@@ -160,10 +114,6 @@ listsContainer.addEventListener('click', e => {
         saveAndRender()
     }
 }) 
-
-
-
-
 
 categoryNames.addEventListener('click', e => {
 
@@ -213,8 +163,6 @@ newListForm.addEventListener('submit', e => {
     // takes lists variable (all lists) and adds the new list to it
     lists.push(list)
 
-
-
     saveAndRender()
 })
 
@@ -232,7 +180,6 @@ newWordForm.addEventListener('submit', e => {
     saveAndRender()
 }) 
 
-
 function createList(name) {
     // returns object, Date.now().toString() take the date and current tinme and convert them to a string to 
     // give a unique identifier, name is set to the name and each list will have a set of words
@@ -243,7 +190,6 @@ function createword(name) {
     return {id: Date.now().toString(), name: name, complete: false } 
 }
 
-
 function saveAndRender() {
     save()
     render()
@@ -253,14 +199,12 @@ function save() {
    localStorage.setItem(local_storage_list_key, JSON.stringify(lists)) 
    
    localStorage.setItem(local_storage_list_id_key, selectedListId)
-
 }
 
 function render() {
     // bc it clears and then re-renders everything i dont have to manually remove the class of active list 
     // from the selected and then unselected lists
     clearElement(listsContainer)
-
     clearElement(categoryNames)
     
     renderLists()
@@ -278,9 +222,6 @@ function render() {
         wordCount(selectedList)
         clearElement(wordsContainer)
         renderwords(selectedList)
-
-       
-        
     }
 }
 
@@ -330,18 +271,10 @@ function random(selectedList)  {
     randomWord.innerText = `${word}`
 }
 
-
-
-
-
-////let team1Points = '0'
-//localStorage.setItem('team1Points',team1Points)
 var team1Points = 0
 var team2Points = 0
 
 function gameLoop() {
-
-
 let clickCounter = 0
 
 randomWordButton.addEventListener('click', e => { 
@@ -354,7 +287,6 @@ randomWordButton.addEventListener('click', e => {
        
         randomWordButton.innerHTML = 'next'
     }
-
     const selectedList = lists.find(list => list.id === selectedListId)
     random(selectedList)
     randomWord.style.visibility = 'visible'
@@ -369,9 +301,8 @@ randomWordButton.addEventListener('click', e => {
         if(team1Points === 2 || team1Points === 2 ) {
             gameWinner()
             /* resetButton.style.visibility = 'visible' */
-    
         }
-        
+
         // reset the timer one score has been logged
         resetTimer();
         selectionButton.style.display = 'flex'
@@ -385,16 +316,14 @@ randomWordButton.addEventListener('click', e => {
         scoreButtonsHidden()
         // click count is set to zero at the end of each round 
         clickCounter = 0
-        randomWordButton.innerHTML = 'start'
-        
+        randomWordButton.innerHTML = 'start'  
     })
+
     team2Button.addEventListener('click', e => {
         team2Points++
         team2Score.innerText = `${team2Points}`
         if(team1Points === 2 || team2Points === 2 ) {
             gameWinner()
-           
-    
         }
         
         resetTimer();
@@ -428,8 +357,8 @@ randomWordButton.addEventListener('click', e => {
        // resets game after 4 seconds once a winner has been declared
        setTimeout(rat, 5000);
        function rat() {
-            window.location.reload();
-            
+            window.location.reload()
+   
        }
     }
     
@@ -445,41 +374,33 @@ randomWordButton.addEventListener('click', e => {
         randomWordButton.style.display = 'none'
     }
 
-   
-
-
-
-
 // Select timeout Audio element
 //const timeoutAudio = document.getElementById("timeout_audio");
 
 // variable to store count
-var remainingTime = 5;
-
+var remainingTime = 60
 // variable to store time interval
 var timer;
 const startTimer = () => {
+    countdown.innerHTML = remainingTime
+    timer = setInterval(renderTime, 1000)
 
-    countdown.innerHTML = remainingTime;
-    timer = setInterval(renderTime, 1000);
-
-
-  if(remainingTime === 0) {
-      stopTimer();
-  }
-};
+    if(remainingTime === 0) {
+        stopTimer();
+    }
+}
 
 const resetTimer = () => {
   clearInterval(timer)
-  remainingTime = 5;
+  remainingTime = 60
   countdown.innerHTML = remainingTime
 }
 
 const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
 
-timeoutSound.src = "http://soundbible.com/grab.php?id=1252&type=mp3"
-gameSound.src = "timersound.mp4"
+timeoutSound.src = "timeup.wav"
+gameSound.src = "timedcountdown.mp3"
 winSound.src = "win.mp3"
 timeoutSound.load()
 gameSound.load()
@@ -494,8 +415,6 @@ selectionButton.addEventListener('click', () =>{
     countdown.style.visibility = 'visible'
     showButton.style.display = 'none'
     hiddenCategoryAdded.style.display = 'none'
-    
-
 })
 
 /* resetButton.addEventListener('click', () =>{
@@ -510,7 +429,6 @@ function scoreButtonsHidden(){
     team2Button.style.display = 'none'
 }
 
-
 function scoreButtonsVisible(){
     team1Button.style.display = 'flex'
     team2Button.style.display = 'flex'
@@ -522,18 +440,16 @@ const renderTime = () => {
   // render count on the screen
   countdown.innerHTML = remainingTime
   
-    if(remainingTime <= 30) {
+  /*   if(remainingTime <= 30) {
         gameSound.playbackRate = 1.5
     }
     if(remainingTime <= 20) {
         gameSound.playbackRate = 2.0
     }
-   /*  if(remainingTime <= 15) {
-        gameSound.playbackRate = 2.5
-    } */
+  
     if(remainingTime <= 10) {
         gameSound.playbackRate = 2.3
-    }
+    } */
 
     if (remainingTime === 0) {
 
@@ -542,13 +458,11 @@ const renderTime = () => {
         gameSound.pause();
         timeoutSound.play()
 
-        remainingTime = 5
+        remainingTime = 60
         selectionButton.style.display = 'none'
         randomWordButton.style.display = 'none'
     }  
 }
-
-
 
 }
 
