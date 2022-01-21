@@ -400,7 +400,7 @@ const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
 const timeoutSound = document.getElementById('timeout-sound')
 
-timeoutSound.src = "timeup.mp3"
+timeoutSound.src = "buzz-buzz-2.mp3"
 gameSound.src = "countdownLOUD.mp3"
 winSound.src = "win.mp3"
 timeoutSound.load()
