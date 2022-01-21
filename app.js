@@ -30,7 +30,7 @@ const hiddenCategoryAdded = document.querySelector('.lists')
 const wordTemplate = document.getElementById('word-template')
 
 const countdown = document.getElementById('countdown')
-const timeoutSound = document.getElementById('timeout-sound')
+
 const scoreboard = document.querySelector('.scoreboard')
 
 const selectionButton = document.getElementById('selection-button')
@@ -398,6 +398,7 @@ const resetTimer = () => {
 
 const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
+const timeoutSound = document.getElementById('timeout-sound')
 
 timeoutSound.src = "timeup.mp3"
 gameSound.src = "countdownLOUD.mp3"
