@@ -131,7 +131,6 @@ body {
     }
   }
 
-
 /* 
 .glow {
     animation: glow 2.5s ease-in-out infinite alternate;
@@ -180,7 +179,7 @@ li, .word-list {
 } 
 
 .list-name {
-    font-size: 25px;
+    font-size: 35px;
     margin-top: 5px;
 }
 
@@ -195,8 +194,10 @@ li, .word-list {
     background-color: rgb(168, 168, 168);
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    font-size: 18px;
-
+    font-size: 25px;
+}
+.list-title {
+    margin-bottom:10px;
 }
 .word-count {
     margin-top: 0px;
@@ -220,7 +221,7 @@ li, .word-list {
 }
 
 .word {
-    font-size: 25px;
+    font-size: 30px;
     margin-bottom:10px;
 }
 
@@ -231,6 +232,7 @@ li, .word-list {
 
 .delete {
     display: flex;
+    font-size: 15px;
     justify-content: space-between;
     margin-top: 20px;
     border: none;
@@ -342,6 +344,7 @@ li.category-selection {
     justify-content: center;
 }
 #show-button {
+ 
     font-size: 15px;
     background-color: transparent;
     padding: 5px;
