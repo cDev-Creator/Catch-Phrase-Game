@@ -378,7 +378,7 @@ randomWordButton.addEventListener('click', e => {
 //const timeoutAudio = document.getElementById("timeout_audio");
 
 // variable to store count
-var remainingTime = 60
+var remainingTime = 5
 // variable to store time interval
 var timer;
 const startTimer = () => {
@@ -392,7 +392,7 @@ const startTimer = () => {
 
 const resetTimer = () => {
   clearInterval(timer)
-  remainingTime = 60
+  remainingTime = 5
   countdown.innerHTML = remainingTime
 }
 
@@ -458,7 +458,7 @@ const renderTime = () => {
         gameSound.pause();
         timeoutSound.play()
 
-        remainingTime = 60
+        remainingTime = 5
         selectionButton.style.display = 'none'
         randomWordButton.style.display = 'none'
     }  
