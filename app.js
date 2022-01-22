@@ -300,7 +300,7 @@ randomWordButton.addEventListener('click', e => {
         team1Points++
         
         team1Score.innerText = `${team1Points}`
-        if(team1Points === 2 || team1Points === 2 ) {
+        if(team1Points === 7 || team1Points === 7 ) {
             gameWinner()
             /* resetButton.style.visibility = 'visible' */
         }
@@ -324,7 +324,7 @@ randomWordButton.addEventListener('click', e => {
     team2Button.addEventListener('click', e => {
         team2Points++
         team2Score.innerText = `${team2Points}`
-        if(team1Points === 2 || team2Points === 2 ) {
+        if(team1Points === 7 || team2Points === 7 ) {
             gameWinner()
         }
         
@@ -344,12 +344,12 @@ randomWordButton.addEventListener('click', e => {
     redWinner.style.display = 'none'
     blueWinner.style.display = 'none' 
     function gameWinner() {
-        if (team1Points === 2) {
+        if (team1Points === 7) {
             blueWinner.style.display = 'flex'
             
             winSound.play()
         }
-        else if (team2Points === 2) {
+        else if (team2Points === 7) {
             redWinner.style.display = 'flex'
            
             winSound.play()
@@ -379,7 +379,7 @@ randomWordButton.addEventListener('click', e => {
 //const timeoutAudio = document.getElementById("timeout_audio");
 
 // variable to store count
-var remainingTime = 5
+var remainingTime = 60
 // variable to store time interval
 var timer;
 const startTimer = () => {
@@ -393,7 +393,7 @@ const startTimer = () => {
 
 const resetTimer = () => {
   clearInterval(timer)
-  remainingTime = 5
+  remainingTime = 60
   countdown.innerHTML = remainingTime
 }
 
@@ -401,16 +401,14 @@ const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
 /* const timeoutSound = document.getElementById('timeout-sound') */
 
-
-
-
+/* 
 const timeoutSound = new Audio()
 timeoutSound.autoplay = true
 timeoutSound.src = "silent.mp3"
-
+ */
 
 /* timeoutSound.src = "buzz-buzz-2.mp3" */
-gameSound.src = "countdownLOUD.mp3"
+gameSound.src = "countdown3.mp3"
 winSound.src = "game-win.mp3"
 /* timeoutSound.load() */
 gameSound.load()
@@ -462,14 +460,12 @@ const renderTime = () => {
     } */
 
     if (remainingTime === 0) {
-
         clearInterval(timer)
         scoreButtonsVisible()
-        gameSound.pause()
+       /*  gameSound.pause() */
         /* timeoutSound.play() */
-        timeoutSound.src = "buzz-buzz-2.mp3"
 
-        remainingTime = 5
+        remainingTime = 60
         selectionButton.style.display = 'none'
         randomWordButton.style.display = 'none'
     }  
