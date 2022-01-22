@@ -462,7 +462,7 @@ const renderTime = () => {
     if (remainingTime === 0) {
         clearInterval(timer)
         scoreButtonsVisible()
-        gameSound.pause()
+        /* gameSound.pause() */
         /* timeoutSound.play() */
 
         remainingTime = 60
