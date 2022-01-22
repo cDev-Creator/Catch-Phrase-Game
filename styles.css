@@ -441,7 +441,7 @@ li.category-selection {
     margin-right: 100px;
     font-size: 80px;
     background-color: transparent;
-    text-shadow:  0 -80px 210px, 0 0 2px, 0 0 1em #0008ff, 0 0 0.5em rgb(21, 0, 255), 0 0 0.1em #0000ff, 0 10px 3px #000;
+    text-shadow:  0 -160px 310px, 0 0 2px, 0 0 1em #0008ff, 0 0 0.5em rgb(21, 0, 255), 0 0 0.1em #0000ff, 0 10px 3px #000;
 }
 
 #team2-button {
@@ -449,7 +449,7 @@ li.category-selection {
     font-size: 80px;
     background-color: transparent;
    /*  text-shadow: 0 -40px 110px, 0 0 2px, 0 0 1em #ff0000, 0 0 0.5em rgb(255, 0, 0), 0 0 0.1em #ff0000, 0 10px 3px #000; */
-   text-shadow:  0 -80px 210px, 0 0 2px, 0 0 0.5em rgb(255, 0, 0), 0 0 0.1em #ff0000, 0 10px 3px #000;
+   text-shadow:  0 -100px 230px, 0 0 2px, 0 0 0.5em rgb(255, 0, 0), 0 0 0.1em #ff0000, 0 10px 3px #000;
    
 }
 

@@ -400,10 +400,20 @@ const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
 const timeoutSound = document.getElementById('timeout-sound')
 
-timeoutSound.src = "buzz-buzz-2.mp3"
+
+
+timeoutSound.autoplay = true;
+// onClick of first interaction on page before I need the sounds
+timeoutSound.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
+
+// later on when you actually want to play a sound at any point without user interaction
+
+
+
+/* timeoutSound.src = "buzz-buzz-2.mp3" */
 gameSound.src = "countdownLOUD.mp3"
-winSound.src = "win.mp3"
-timeoutSound.load()
+winSound.src = "game-win.mp3"
+/* timeoutSound.load() */
 gameSound.load()
 winSound.load()
 
@@ -456,8 +466,9 @@ const renderTime = () => {
 
         clearInterval(timer)
         scoreButtonsVisible()
-        gameSound.pause();
-        timeoutSound.play()
+        gameSound.pause()
+        /* timeoutSound.play() */
+        timeoutSound.src = "buzz-buzz-2.mp3"
 
         remainingTime = 5
         selectionButton.style.display = 'none'
