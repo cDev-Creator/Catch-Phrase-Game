@@ -36,6 +36,8 @@ const scoreboard = document.querySelector('.scoreboard')
 const selectionButton = document.getElementById('selection-button')
 
 
+
+
 // the data attribute is used to store custom data private to a page
 // to make a data attribute it must start with 'data-'
 // need key-value pairs to store locally
@@ -354,11 +356,10 @@ randomWordButton.addEventListener('click', e => {
         }
        disableButtons() 
 
-       // resets game after 4 seconds once a winner has been declared
-       setTimeout(rat, 5000);
-       function rat() {
+       // resets game after 5 seconds once a winner has been declared
+       setTimeout(reloadGame, 5000);
+       function reloadGame() {
             window.location.reload()
-   
        }
     }
     
@@ -398,16 +399,14 @@ const resetTimer = () => {
 
 const gameSound = document.getElementById("game-sound")
 const winSound = document.getElementById("win-sound")
-const timeoutSound = document.getElementById('timeout-sound')
+/* const timeoutSound = document.getElementById('timeout-sound') */
 
 
 
-timeoutSound.autoplay = true;
-// onClick of first interaction on page before I need the sounds
-timeoutSound.src = "data:audio/mpeg;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKpIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzUAVFNTRQAAAA8AAANMYXZmNTcuODMuMTAwAAAAAAAAAAAAAAD/80DEAAAAA0gAAAAATEFNRTMuMTAwVVVVVVVVVVVVVUxBTUUzLjEwMFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQsRbAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVf/zQMSkAAADSAAAAABVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"
 
-// later on when you actually want to play a sound at any point without user interaction
-
+const timeoutSound = new Audio()
+timeoutSound.autoplay = true
+timeoutSound.src = "silent.mp3"
 
 
 /* timeoutSound.src = "buzz-buzz-2.mp3" */
