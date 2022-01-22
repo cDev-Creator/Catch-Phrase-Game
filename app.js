@@ -408,7 +408,7 @@ timeoutSound.src = "silent.mp3"
  */
 
 /* timeoutSound.src = "buzz-buzz-2.mp3" */
-gameSound.src = "countdown3.mp3"
+gameSound.src = "countdown.mp3"
 winSound.src = "game-win.mp3"
 /* timeoutSound.load() */
 gameSound.load()
@@ -462,7 +462,7 @@ const renderTime = () => {
     if (remainingTime === 0) {
         clearInterval(timer)
         scoreButtonsVisible()
-       /*  gameSound.pause() */
+        gameSound.pause()
         /* timeoutSound.play() */
 
         remainingTime = 60
